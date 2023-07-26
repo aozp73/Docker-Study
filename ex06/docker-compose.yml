@@ -1,0 +1,16 @@
+services:
+  mysqldb: # 컨테이너 이름 (임의 지정)
+    image: mysql
+    restart: always # 컨테이너가 종료될 때 Docker가 자동으로 다시 시작
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root1234
+      - MYSQL_DATABASE=rootdb
+    ports:
+      - "3307:3306"
+
+volumes:
+  mysql-compose-volume:
+
+
