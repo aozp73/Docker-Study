@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./docker-test-db # context에 있는 dockerfile을 build
+      dockerfile: Dockerfile
+
+
+
+
+
+
+
+
+
