@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nginx:
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - mynetwork
+
+  server1:
+    build: 
+      context: ./service1
+      dockerfile: Dockerfile
+    restart: always
+    working_dir: /app
+    networks:
+      - mynetwork
+
+  server2:
+    build: 
+      context: ./service2
+      dockerfile: Dockerfile
+    restart: always
+    working_dir: /app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
